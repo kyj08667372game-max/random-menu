@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오늘 뭐 먹지? - 랜덤 메뉴 추천기</title>
+  <meta name="description" content="결정 장애는 이제 그만! 한식, 중식, 일식, 양식 등 맛있는 메뉴를 랜덤으로 쏙쏙 골라주는 오늘의 메뉴 추천기입니다.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700;800;900&family=Gaegu:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- 당첨 축하 폭죽 효과 스크립트 -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+  <div class="background-decorations" aria-hidden="true">
+    <div class="floating-emoji e1">🍕</div>
+    <div class="floating-emoji e2">🍣</div>
+    <div class="floating-emoji e3">🍜</div>
+    <div class="floating-emoji e4">🍔</div>
+    <div class="floating-emoji e5">🥘</div>
+    <div class="floating-emoji e6">🍗</div>
+  </div>
+
+  <main class="main-wrapper">
+    <header class="header-section">
+      <div class="badge-pill">✨ 결정 장애 해결사 ✨</div>
+      <h1 class="main-title">오늘 뭐 먹지?</h1>
+      <p class="subtitle">고민할 시간조차 아까운 배고픈 당신을 위한 랜덤 메뉴 추천!</p>
+    </header>
+
+    <!-- 음식 종류 선택 탭 -->
+    <nav class="category-tabs" aria-label="음식 종류 선택">
+      <button class="tab-btn active" data-category="전체" id="tab-all">전체</button>
+      <button class="tab-btn" data-category="한식" id="tab-korean">🍚 한식</button>
+      <button class="tab-btn" data-category="중식" id="tab-chinese">🥟 중식</button>
+      <button class="tab-btn" data-category="일식" id="tab-japanese">🍣 일식</button>
+      <button class="tab-btn" data-category="양식" id="tab-western">🍝 양식</button>
+      <button class="tab-btn" data-category="분식/기타" id="tab-snack">🍢 분식/기타</button>
+    </nav>
+
+    <!-- 추천 디스플레이 카드 영역 -->
+    <section class="card-container" id="menu-card-section">
+      <div class="menu-display-card" id="display-card">
+        <div class="slot-machine-wrapper">
+          <div class="menu-icon" id="menu-icon">🍽️</div>
+          <div class="menu-category-tag" id="menu-category">행운의 메뉴를 뽑아보세요!</div>
+          <h2 class="menu-name" id="menu-name">메뉴를 추천받아 보세요</h2>
+          <p class="menu-description" id="menu-description">아래의 '메뉴 추천하기' 버튼을 누르면 맛있는 메뉴가 짠! 나타납니다.</p>
+          
+          <div class="menu-tags" id="menu-tags">
+            <span class="tag">#점심추천</span>
+            <span class="tag">#저녁추천</span>
+            <span class="tag">#맛있으면0칼로리</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 동작 버튼 영역 -->
+    <div class="action-section">
+      <button type="button" class="recommend-btn" id="recommend-btn">
+        <span class="btn-sparkle">✨</span>
+        <span class="btn-text">메뉴 추천하기</span>
+        <span class="btn-sparkle">✨</span>
+      </button>
+
+      <div class="action-sub-options">
+        <button type="button" class="sub-btn sound-toggle-btn" id="sound-toggle-btn" title="효과음 켜기/끄기">
+          <span id="sound-icon">🔊</span> 소리 켜짐
+        </button>
+        <button type="button" class="sub-btn share-btn" id="share-btn" title="추천 메뉴 복사하기">
+          🔗 결과 공유
+        </button>
+      </div>
+    </div>
+
+    <!-- 최근 추천 히스토리 -->
+    <section class="history-section" id="history-section" style="display: none;">
+      <h3 class="history-title">최근 추천받은 메뉴</h3>
+      <div class="history-chips" id="history-chips">
+        <!-- JS로 동적 추가 -->
+      </div>
+    </section>
+  </main>
+
+  <!-- 토스트 알림 메시지 -->
+  <div class="toast-message" id="toast-message" role="alert" aria-live="polite"></div>
+
+  <footer class="footer">
+    <p>2026 오늘의 메뉴 추천기 · 고민 끝 맛있는 한 끼 되세요!</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
