@@ -425,7 +425,7 @@ shareBtn.addEventListener("click", () => {
     return;
   }
 
-  const shareText = `[오늘 뭐 먹지? 오늘의 추천 메뉴]\n🍽️ ${currentSelectedMenu.name} (${currentSelectedMenu.category})\n👉 ${currentSelectedMenu.desc}\n${currentSelectedMenu.tags.join(" ")}`;
+  const shareText = `[오늘 메뉴 추천 - 오늘의 추천 메뉴]\n🍽️ ${currentSelectedMenu.name} (${currentSelectedMenu.category})\n👉 ${currentSelectedMenu.desc}\n${currentSelectedMenu.tags.join(" ")}`;
 
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(shareText)
